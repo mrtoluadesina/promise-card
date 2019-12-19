@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './fonts/GTSuperText-Regular.otf';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
