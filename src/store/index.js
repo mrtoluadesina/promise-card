@@ -10,7 +10,11 @@ const ThemeProvider = ({ children }) => {
     yellow: "#FFE04A",
     pink: "#FF94E1",
     blue: "#6ECFFF",
-    active: YELLOW_THEME
+    active: YELLOW_THEME,
+    inputList: Array(10).fill({
+      name: "",
+      value: "",
+    })
   };
 
   const [state, dispatch] = useReducer(themeReducer, initialState);
