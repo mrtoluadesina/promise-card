@@ -3,19 +3,33 @@ import { ThemeContext } from "../../store";
 import styled from "styled-components";
 import Card from "./Card";
 import Button from "../../components/Button";
+import Drawer from "./Drawer";
 
 export default function Share() {
   const [state, dispatch] = useContext(ThemeContext);
+
+  const openDrawer = () => {
+    const drawer = document.querySelector(".drawer");
+    drawer.classList.add("is-active");
+  };
+
   return (
-    <Container theme={state.currentTheme}>
-      <CardWrapper>
-        <Card inputList={state.inputList} />
-      </CardWrapper>
-      <Actions>
-        <Button value="Share with friends" />
-        <Button value="Create new card" />
-      </Actions>
-    </Container>
+    <>
+      <Container theme={state.currentTheme}>
+        <CardWrapper>
+          <Card inputList={state.inputList} />
+        </CardWrapper>
+        <Actions>
+          <Button
+            className="btn-solid"
+            value="Share with friends"
+            onClick={openDrawer}
+          />
+          <Button className="btn-outline" value="Create new card" />
+        </Actions>
+      </Container>
+      <Drawer />
+    </>
   );
 }
 
@@ -30,12 +44,12 @@ const Container = styled.div`
   z-index: 1;
   position: relative;
   &::after {
-    content: '';
+    content: "";
     width: 100%;
     height: 100vh;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
   }
 `;

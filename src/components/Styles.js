@@ -46,4 +46,13 @@ export const Btn = styled.input`
   border-radius: 0.6rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   margin-top: 1.2rem;
+  &.btn-solid {
+    background-color: #0262C3;
+    color: white;
+  };
+  &.btn-outline {
+    background-color: white;
+    border: 1px solid #0262C3;
+    color: #0262C3;
+  }
 `;
