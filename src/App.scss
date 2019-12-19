@@ -1,9 +1,9 @@
-@import './variables';
+@import "./variables";
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color: $yellow;
+  padding: 1rem 1.6rem;
 }
