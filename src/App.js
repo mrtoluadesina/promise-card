@@ -1,5 +1,9 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import AppRoutes from "./router";
 
-export default () => <AppRoutes />;
+export default () => (
+  <div className="main">
+    <AppRoutes />
+  </div>
+);
