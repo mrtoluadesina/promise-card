@@ -19,6 +19,21 @@ function TableView(props) {
             />
           </li>
         ))}
+        {props.inputList.length !== 8
+          ? Array(8 - props.inputList.length)
+              .fill({ title: "" })
+              .map((item, index) => (
+                <li key={index}>
+                  <Input
+                    type="text"
+                    value={item.title}
+                    id={index}
+                    placeholder="Add Item"
+                    onChange={props.handleChange}
+                  />
+                </li>
+              ))
+          : null}
       </List>
     </Table>
   );
