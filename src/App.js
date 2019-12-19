@@ -1,9 +1,12 @@
 import React from "react";
-import "./App.scss";
 import AppRoutes from "./router";
+import { ThemeProvider } from "./store";
+import "./App.css";
 
 export default () => (
   <div className="main">
-    <AppRoutes />
+    <ThemeProvider>
+      <AppRoutes />
+    </ThemeProvider>
   </div>
 );
