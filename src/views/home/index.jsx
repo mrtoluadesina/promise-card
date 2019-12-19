@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../store";
 import {
@@ -12,8 +12,15 @@ import "./index.scss";
 import Table from "../../components/Table";
 import Button from "../../components/Button";
 
+import Modal from '../Modal';
+
 export default function Home() {
   const [state, dispatch] = useContext(ThemeContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = () => {
+    setShowModal(true);
+  }
 
   const handleChange = ({ target }) => {
     const { id, value } = target;
@@ -22,8 +29,6 @@ export default function Home() {
 
     dispatch({ type: UPDATE_FORM, payload: form });
   };
-
-  const handleSubmit = () => {};
 
   return (
     <Container theme={state.currentTheme} className="main">
@@ -58,6 +63,7 @@ export default function Home() {
         <Table inputList={state.inputList} handleChange={handleChange} />
         <Button value={"GENERATE PROMISE CARD"} onClick={handleSubmit} />
       </div>
+      {showModal && <Modal />}
     </Container>
   );
 }
