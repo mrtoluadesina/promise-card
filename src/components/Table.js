@@ -10,7 +10,13 @@ function TableView(props) {
       <List>
         {props.inputList.map((item, index) => (
           <li key={index}>
-            <Input type="text" name={item.name} value={item.value} placeholder="Add Item" />
+            <Input
+              type="text"
+              value={item.title}
+              id={index}
+              placeholder="Add Item"
+              onChange={props.handleChange}
+            />
           </li>
         ))}
       </List>

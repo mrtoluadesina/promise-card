@@ -1,14 +1,29 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../store";
-import { YELLOW_THEME, PINK_THEME, BLUE_THEME } from "../../store/types";
+import {
+  YELLOW_THEME,
+  PINK_THEME,
+  BLUE_THEME,
+  UPDATE_FORM
+} from "../../store/types";
 import { setActiveStyle } from "../../utils";
 import "./index.scss";
-import Table from '../../components/Table';
+import Table from "../../components/Table";
 import Button from "../../components/Button";
 
 export default function Home() {
   const [state, dispatch] = useContext(ThemeContext);
+
+  const handleChange = ({ target }) => {
+    const { id, value } = target;
+    const form = [...state.inputList];
+    form[id] = { title: value };
+
+    dispatch({ type: UPDATE_FORM, payload: form });
+  };
+
+  const handleSubmit = () => {};
 
   return (
     <Container theme={state.currentTheme} className="main">
@@ -40,8 +55,8 @@ export default function Home() {
             })}
           ></span>
         </div>
-        <Table inputList={state.inputList} />
-        <Button value={"GENERATE PROMISE CARD"} />
+        <Table inputList={state.inputList} handleChange={handleChange} />
+        <Button value={"GENERATE PROMISE CARD"} onClick={handleSubmit} />
       </div>
     </Container>
   );

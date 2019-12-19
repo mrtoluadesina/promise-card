@@ -1,7 +1,7 @@
 export const setActiveStyle = ({ active, boxType }) => {
   const activeStyle = {
-    width: "20px",
-    height: "20px",
+    width: "22px",
+    height: "22px",
     borderWidth: "1px",
     borderColor: "rgba(0, 0, 0, 0.521)",
     borderStyle: "solid"
