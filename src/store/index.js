@@ -11,7 +11,7 @@ const ThemeProvider = ({ children }) => {
     pink: "#FF94E1",
     blue: "#6ECFFF",
     active: YELLOW_THEME,
-    inputList: Array(10).fill({ title: "" }),
+    inputList: Array(8).fill({ title: "" }),
     user: {
       name: "",
       email: ""
