@@ -1,5 +1,5 @@
 import React from "react";
-import {DrawerContainer} from './Styles';
+import { DrawerContainer } from "./Styles";
 
 export default () => {
   const closeDrawer = () => {
@@ -11,7 +11,9 @@ export default () => {
       <div className="theDrawer">
         <h2>This is the drawer</h2>
       </div>
-      <span onClick={closeDrawer}>x</span>
+      <span onClick={closeDrawer}>
+        <i className="mdi mdi-close"></i>
+      </span>
     </DrawerContainer>
   );
 };
