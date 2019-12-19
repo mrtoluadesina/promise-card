@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Table = styled.div`
-  border: 1px solid #111111;
+  border: 2px solid #111111;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,7 +9,7 @@ export const Table = styled.div`
 `;
 
 export const Header = styled.div`
-  border-bottom: 1px solid #111111;
+  border-bottom: 2px solid #111111;
   background-color: #f9f9f9;
 `;
 
@@ -34,7 +34,7 @@ export const List = styled.ul`
 export const Input = styled.input`
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #111111;
+  border-bottom: 2px solid #111111;
   padding: 0.5rem 1rem;
   background-color: transparent;
   font-size: 15px;
