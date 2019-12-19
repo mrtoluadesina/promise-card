@@ -5,6 +5,7 @@ import { YELLOW_THEME, PINK_THEME, BLUE_THEME } from "../../store/types";
 import { setActiveStyle } from "../../utils";
 import "./index.scss";
 import Table from '../../components/Table';
+import Button from "../../components/Button";
 
 export default function Home() {
   const [state, dispatch] = useContext(ThemeContext);
@@ -39,8 +40,8 @@ export default function Home() {
             })}
           ></span>
         </div>
-
-        <Table />
+        <Table inputList={state.inputList} />
+        <Button value={"GENERATE PROMISE CARD"} />
       </div>
     </Container>
   );
