@@ -9,14 +9,62 @@ export const DrawerContainer = styled.div`
     width: 100%;
     height: 20vh;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     bottom: 0;
     transform: translate3d(0, 100%, 0);
     transition: transform 0.5s ease;
+    .tray {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-width: 80px;
+        span {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            color: white;
+            font-size: 20px;
+          }
+          &.download {
+            background-color: #2882f0;
+          }
+          &.link {
+            background-color: #c9ddf1;
+            i {
+              color: #5589cf;
+            }
+          }
+          &.fb {
+            background-color: #3a52a1;
+          }
+          &.tweet {
+            background-color: #0ba8f3;
+          }
+        }
+        p {
+          font-size: 11px;
+          font-weight: 500;
+          margin-top: .6rem;
+        }
+      }
+    }
   }
 
-  span {
+  span.close {
     display: none;
   }
 
@@ -43,7 +91,7 @@ export const DrawerContainer = styled.div`
       bottom: 0;
     }
 
-    span {
+    span.close {
       display: unset;
       position: absolute;
       top: 10px;
