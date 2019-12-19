@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ThemeContext } from "../../store";
 
 import "./index.scss";
-import { Table } from "../../components/Styles";
+import Table from '../../components/Table';
 
 export default function Home() {
   const [state, dispatch] = useContext(ThemeContext);

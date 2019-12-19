@@ -4,7 +4,9 @@ import { Table, Header } from "./Styles";
 function TableView(props) {
   return (
     <Table>
-      <Header>Item</Header>
+      <Header>
+        <p>Item</p>
+      </Header>
     </Table>
   );
 }
