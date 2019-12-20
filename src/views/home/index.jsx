@@ -32,10 +32,13 @@ export default function Home() {
 
   const handleSubmit = e => {
     e.preventDefault();
+  };
+
+  const handleShowModal = () => {
     const bg = document.querySelector(".app-content");
     bg.classList.add("blur-bg");
     setShowModal(true);
-  };
+  }
 
   const closeModal = () => {
     const bg = document.querySelector(".app-content");
@@ -140,10 +143,7 @@ export default function Home() {
           ></span>
         </div>
         <Table inputList={state.inputList} handleChange={handleChange} />
-        <Button
-          value={"GENERATE PROMISE CARD"}
-          onClick={() => setShowModal(true)}
-        />
+        <Button value={"GENERATE PROMISE CARD"} onClick={handleShowModal} />
       </div>
       {showModal && (
         <Modal
