@@ -21,7 +21,7 @@ const {
   REACT_APP_SCOPE
 } = process.env;
 
-export default function Home() {
+export default function Home(props) {
   useEffect(() => {
     //initialize the Google API
     window.gapi.load("client:auth2", initClient);
@@ -32,13 +32,19 @@ export default function Home() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    const values = [
+      ...Object.values(state.user),
+      JSON.stringify(state.inputList)
+    ];
+    createPromise(values);
   };
 
   const handleShowModal = () => {
     const bg = document.querySelector(".app-content");
     bg.classList.add("blur-bg");
     setShowModal(true);
-  }
+  };
 
   const closeModal = () => {
     const bg = document.querySelector(".app-content");
@@ -78,17 +84,13 @@ export default function Home() {
       GoogleAuth = window.gapi.auth2.getAuthInstance();
       const isSignedIn = GoogleAuth.isSignedIn.get();
 
-      if (!isSignedIn) {
-        GoogleAuth.signIn();
-        console.log("ERROR LOGIN IN");
-      }
-      createPromise();
+      if (!isSignedIn) GoogleAuth.signIn();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const createPromise = async () => {
+  const createPromise = async values => {
     const sheetOption = {
       spreadsheetId: REACT_APP_SPREADSHEET_ID,
       range: "Sheet1",
@@ -98,15 +100,16 @@ export default function Home() {
 
     const valueRangeBody = {
       majorDimension: "ROWS",
-      values: [...Object.values(state.user), JSON.stringify(state.inputList)]
+      values
     };
 
     try {
-      const response = await window.gapi.client.sheets.spreadsheets.values.append(
+      await window.gapi.client.sheets.spreadsheets.values.append(
         sheetOption,
         valueRangeBody
       );
-      console.log({ response });
+
+      props.history.push("/share");
     } catch (error) {
       console.log("ERROR", error);
     }
