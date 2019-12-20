@@ -21,7 +21,7 @@ const {
   REACT_APP_SCOPE
 } = process.env;
 
-export default function Home() {
+export default function Home(props) {
   useEffect(() => {
     //initialize the Google API
     window.gapi.load("client:auth2", initClient);
@@ -78,10 +78,8 @@ export default function Home() {
       GoogleAuth = window.gapi.auth2.getAuthInstance();
       const isSignedIn = GoogleAuth.isSignedIn.get();
 
-      if (!isSignedIn) {
-        GoogleAuth.signIn();
-        console.log("ERROR LOGIN IN");
-      }
+      if (!isSignedIn) GoogleAuth.signIn();
+
       createPromise();
     } catch (error) {
       console.log(error);
@@ -98,15 +96,16 @@ export default function Home() {
 
     const valueRangeBody = {
       majorDimension: "ROWS",
-      values: [...Object.values(state.user), JSON.stringify(state.inputList)]
+      values: [[...Object.values(state.user), JSON.stringify(state.inputList)]]
     };
 
     try {
-      const response = await window.gapi.client.sheets.spreadsheets.values.append(
+      await window.gapi.client.sheets.spreadsheets.values.append(
         sheetOption,
         valueRangeBody
       );
-      console.log({ response });
+
+      props.history.push("/share");
     } catch (error) {
       console.log("ERROR", error);
     }
