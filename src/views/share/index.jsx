@@ -10,6 +10,8 @@ import htmlToImage from "html-to-image";
 export default function Share() {
   const [state, dispatch] = useContext(ThemeContext);
 
+  const items = state.inputList.filter(item => item.title);
+
   const downloadImage = () => {
     htmlToImage
       .toJpeg(document.getElementById("promiseCard"), { quality: 0.95 })
@@ -30,7 +32,7 @@ export default function Share() {
     <>
       <Container theme={state.currentTheme}>
         <CardWrapper>
-          <Card inputList={state.inputList} />
+          <Card inputList={items} />
         </CardWrapper>
         <Actions>
           <Button
