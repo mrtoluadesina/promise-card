@@ -32,13 +32,19 @@ export default function Home(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    const values = [
+      ...Object.values(state.user),
+      JSON.stringify(state.inputList)
+    ];
+    createPromise(values);
   };
 
   const handleShowModal = () => {
     const bg = document.querySelector(".app-content");
     bg.classList.add("blur-bg");
     setShowModal(true);
-  }
+  };
 
   const closeModal = () => {
     const bg = document.querySelector(".app-content");
@@ -79,14 +85,12 @@ export default function Home(props) {
       const isSignedIn = GoogleAuth.isSignedIn.get();
 
       if (!isSignedIn) GoogleAuth.signIn();
-
-      createPromise();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const createPromise = async () => {
+  const createPromise = async values => {
     const sheetOption = {
       spreadsheetId: REACT_APP_SPREADSHEET_ID,
       range: "Sheet1",
@@ -96,7 +100,7 @@ export default function Home(props) {
 
     const valueRangeBody = {
       majorDimension: "ROWS",
-      values: [[...Object.values(state.user), JSON.stringify(state.inputList)]]
+      values
     };
 
     try {
