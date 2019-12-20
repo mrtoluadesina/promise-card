@@ -29,7 +29,7 @@ function TableView(props) {
                     type="text"
                     value={item.title}
                     id={index}
-                    placeholder="Add Item"
+                    placeholder=""
                     onChange={props.handleChange}
                     disabled={props.disabled}
                   />
