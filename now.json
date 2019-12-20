@@ -1,0 +1,22 @@
+{
+  "name": "promise-card",
+  "build": {
+    "env": {
+      "REACT_APP_API_KEY": "@react_app_api_key",
+
+      "REACT_APP_AUTH_DOMAIN": "@react_app_auth_domain",
+
+      "REACT_APP_DATA_BASE_URL": "@react_app_data_base_url",
+
+      "REACT_APP_PROJECT_ID": "@react_app_project_id",
+
+      "REACT_APP_STORAGE_BUCKET": "@react_app_storage_bucket",
+
+      "REACT_APP_MESSAGING_SENDING_ID": "@react_app_messaging_sending_id",
+
+      "REACT_APP_APP_ID": "@react_app_app_id",
+
+      "REACT_APP_MEASUREMENT_ID": "@react_app_measurement_id"
+    }
+  }
+}

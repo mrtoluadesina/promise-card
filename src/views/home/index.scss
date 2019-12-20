@@ -8,18 +8,37 @@
   height: 100vh;
   padding: 1rem 1.6rem;
   position: relative;
-}
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  .app-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    &.blur-bg {
+      filter: blur(1rem);
+    }
+    .header {
+      font-size: 27px;
+      width: 200px;
+      line-height: 35px;
+      text-align: center;
+      font-family: "GTSuperText";
+    }
 
-.header {
-  font-size: 27px;
-  width: 200px;
-  line-height: 35px;
-  text-align: center;
-}
+    .small_header {
+      font-size: 14px;
+      margin: 0.8rem 0;
+    }
+  }
+  @media (min-width: $layout-breakpoint-small) {
+    width: 400px;
+    padding: 1rem 2rem;
+  }
 
-.small_header {
-  font-size: 14px;
-  margin: .8rem 0;
+  @media (min-width: $layout-breakpoint-medium) {
+    width: 600px;
+    padding: 3.5rem;
+  }
 }
 
 .choose_colors {
@@ -44,18 +63,5 @@
     &:nth-child(3) {
       background-color: $blue;
     }
-  }
-}
-
-.app-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  &.blur-bg {
-    filter: blur(1rem)
-  }
-  h2 {
-    font-family: "GTSuperText";
   }
 }
