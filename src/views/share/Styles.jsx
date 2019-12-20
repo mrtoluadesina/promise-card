@@ -81,7 +81,7 @@ export const DrawerContainer = styled.div`
       content: "";
       width: 100%;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.45);
       top: 0;
       left: 0;
     }

@@ -11,7 +11,7 @@ export default function Card(props) {
         <Title>My Promise Card</Title>
         <Name>for my anniversary</Name>
       </Header>
-      <Table inputList={props.inputList} />
+      <Table inputList={props.inputList} disabled={true} handleChange={() => {}} />
       <Footer>
         <Slogan><em>Thanks for Giving</em></Slogan>
         <Span>create yours on promisecard.com.ng</Span>
