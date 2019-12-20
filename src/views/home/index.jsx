@@ -32,6 +32,15 @@ export default function Home() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const bg = document.querySelector(".app-content");
+    bg.classList.add("blur-bg");
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    const bg = document.querySelector(".app-content");
+    bg.classList.remove("blur-bg");
+    setShowModal(false);
   };
 
   const handleChange = ({ target }) => {
@@ -140,6 +149,7 @@ export default function Home() {
         <Modal
           handleChange={handleUser}
           handleSubmit={handleSubmit}
+          close={closeModal}
           {...state.user}
         />
       )}

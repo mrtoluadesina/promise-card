@@ -52,6 +52,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  &.blur-bg {
+    filter: blur(1rem)
+  }
   h2 {
     font-family: "GTSuperText";
   }
