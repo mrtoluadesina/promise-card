@@ -16,12 +16,12 @@ export default props => {
             </span>
             <p>Save Image</p>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <span className="link">
               <i className="mdi mdi-link-variant"></i>
             </span>
             <p>Copy Link</p>
-          </div>
+          </div> */}
           <div className="item">
             <span className="fb">
               <i className="mdi mdi-facebook"></i>
