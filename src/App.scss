@@ -7,4 +7,12 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  background-color: #313131;
+  @media (min-width: $layout-breakpoint-small) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: $layout-breakpoint-medium) {
+  }
 }

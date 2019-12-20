@@ -67,6 +67,14 @@ const Container = styled.div`
     top: 0;
     left: 0;
   }
+
+  @media (min-width: 414px) {
+    width: 400px;
+  }
+
+  @media (min-width: 768px) {
+    width: 600px;
+  }
 `;
 
 const CardWrapper = styled.div`
