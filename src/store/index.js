@@ -13,9 +13,9 @@ const ThemeProvider = ({ children }) => {
     active: YELLOW_THEME,
     inputList: Array(8).fill({ title: "" }),
     user: {
-      name: "amakiri joseph",
-      email: "amakirij@gmail.com",
-      title: "Christmas"
+      name: "",
+      email: "",
+      title: ""
     }
   };
 
