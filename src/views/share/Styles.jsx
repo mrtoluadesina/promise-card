@@ -121,9 +121,11 @@ export const Header = styled.div`
 `;
 export const Title = styled.h2`
   font-family: "GTSuperText";
+  font-size: 22px;
+  white-space: nowrap;
 `;
 export const Name = styled.div`
-  font-size: 16px;
+  font-size: 14px;
 `;
 export const Footer = styled.div`
   display: flex;
@@ -132,8 +134,10 @@ export const Footer = styled.div`
   margin-top: 0.8rem;
 `;
 export const Slogan = styled.h2`
-  font-size: 24px;
+  font-size: 22px;
   font-family: "GTSuperText";
+  margin-bottom: .5rem;
+  white-space: nowrap;
 `;
 export const Span = styled.span`
   background-color: rgba(0, 0, 0, 0.7);
