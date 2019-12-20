@@ -9,7 +9,7 @@ export default function Card(props) {
     <Container theme={state.currentTheme} id="promiseCard">
       <Header>
         <Title>My Promise Card</Title>
-        <Name>for my anniversary</Name>
+        <Name>for {state.user.title}</Name>
       </Header>
       <Table inputList={props.inputList} disabled={true} handleChange={() => {}} />
       <Footer>
