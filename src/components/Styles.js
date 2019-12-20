@@ -43,6 +43,7 @@ export const Input = styled.input`
 export const Btn = styled.input`
   background-color: white;
   padding: 0.75rem 2rem;
+  border: 0;
   border-radius: 0.6rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   margin-top: 1.2rem;
