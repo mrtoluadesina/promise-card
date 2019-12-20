@@ -5,8 +5,21 @@ import Card from "./Card";
 import Button from "../../components/Button";
 import Drawer from "./Drawer";
 
+import htmlToImage from "html-to-image";
+
 export default function Share() {
   const [state, dispatch] = useContext(ThemeContext);
+
+  const downloadImage = () => {
+    htmlToImage
+      .toJpeg(document.getElementById("promiseCard"), { quality: 0.95 })
+      .then(function(dataUrl) {
+        let downloader = document.createElement("a");
+        downloader.download = "my-promise-card.jpeg";
+        downloader.href = dataUrl;
+        downloader.click();
+      });
+  };
 
   const openDrawer = () => {
     const drawer = document.querySelector(".drawer");
@@ -28,7 +41,7 @@ export default function Share() {
           <Button className="btn-outline" value="Create new card" />
         </Actions>
       </Container>
-      <Drawer />
+      <Drawer downloader={downloadImage} />
     </>
   );
 }
