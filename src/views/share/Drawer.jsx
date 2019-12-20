@@ -1,7 +1,7 @@
 import React from "react";
 import { DrawerContainer } from "./Styles";
 
-export default () => {
+export default props => {
   const closeDrawer = () => {
     const drawer = document.querySelector(".drawer");
     drawer.classList.remove("is-active");
@@ -11,7 +11,7 @@ export default () => {
       <div className="theDrawer">
         <div className="tray">
           <div className="item">
-            <span className="download">
+            <span className="download" onClick={props.downloader}>
               <i className="mdi mdi-download"></i>
             </span>
             <p>Save Image</p>
