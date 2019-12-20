@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import themeReducer from "./reducer";
+import appReducer from "./reducer";
 import { YELLOW_THEME } from "./types";
 
 const ThemeContext = createContext();
@@ -11,13 +11,10 @@ const ThemeProvider = ({ children }) => {
     pink: "#FF94E1",
     blue: "#6ECFFF",
     active: YELLOW_THEME,
-    inputList: Array(10).fill({
-      name: "",
-      value: "",
-    })
+    inputList: Array(10).fill({ title: "" })
   };
 
-  const [state, dispatch] = useReducer(themeReducer, initialState);
+  const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
     <ThemeContext.Provider value={[state, dispatch]}>
