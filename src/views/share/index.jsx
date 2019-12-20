@@ -11,7 +11,6 @@ export default function Share() {
   const [state, dispatch] = useContext(ThemeContext);
 
   const downloadImage = () => {
-    console.log('clicked');
     htmlToImage
       .toJpeg(document.getElementById("promiseCard"), { quality: 0.95 })
       .then(function(dataUrl) {
