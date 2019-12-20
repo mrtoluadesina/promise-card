@@ -10,34 +10,38 @@ export default function Modal(props) {
       </span>
       <div className="modal-content">
         <h2>Your Promise Card is Almost Ready</h2>
-        <form>
+        <form onSubmit={props.handleSubmit}>
           <div className="form-group">
             <label>Give your card a title</label>
             <input
               type="text"
-              name="Title"
+              name="title"
+              value={props.title}
               placeholder="E.g. Christmas, Detty December, Birthday"
-              onClick={handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="form-group">
             <label>Full Name</label>
             <input
               type="text"
-              name="fullname"
+              name="name"
+              value={props.name}
               placeholder="Tolu Adesina"
-              onClick={handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="form-group">
             <label>
-              Email Address <br/><small>To receive your promisecard via mail</small>
+              Email Address <br />
+              <small>To receive your promise card via mail</small>
             </label>
             <input
-              type="text"
+              type="email"
               name="email"
+              value={props.email}
               placeholder="example@mail.com"
-              onClick={handleChange}
+              onChange={handleChange}
             />
           </div>
           <input type="submit" className="btn" value="See My Promise Card" />
