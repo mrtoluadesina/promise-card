@@ -1,0 +1,61 @@
+@import "../../variables";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem 1.6rem;
+  position: relative;
+}
+
+.header {
+  font-size: 27px;
+  width: 200px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.small_header {
+  font-size: 14px;
+  margin: .8rem 0;
+}
+
+.choose_colors {
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+
+  span {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:nth-child(1) {
+      background-color: $yellow;
+    }
+
+    &:nth-child(2) {
+      background-color: $pink;
+    }
+
+    &:nth-child(3) {
+      background-color: $blue;
+    }
+  }
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &.blur-bg {
+    filter: blur(1rem)
+  }
+  h2 {
+    font-family: "GTSuperText";
+  }
+}
