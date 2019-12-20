@@ -1,8 +1,6 @@
-import React from 'react';
-import {Btn} from './Styles';
+import React from "react";
+import { Btn } from "./Styles";
 
 export default function Button(props) {
-  return (
-    <Btn type="button" {...props} />
-  );
+  return <Btn type="button" {...props} />;
 }
