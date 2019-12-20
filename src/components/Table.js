@@ -16,6 +16,7 @@ function TableView(props) {
               id={index}
               placeholder="Add Item"
               onChange={props.handleChange}
+              disabled={props.disabled}
             />
           </li>
         ))}
@@ -30,6 +31,7 @@ function TableView(props) {
                     id={index}
                     placeholder="Add Item"
                     onChange={props.handleChange}
+                    disabled={props.disabled}
                   />
                 </li>
               ))
