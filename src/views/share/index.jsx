@@ -8,7 +8,7 @@ import Drawer from "./Drawer";
 import htmlToImage from "html-to-image";
 
 export default function Share() {
-  const [state, dispatch] = useContext(ThemeContext);
+  const [state] = useContext(ThemeContext);
 
   const items = state.inputList.filter(item => item.title);
 

@@ -16,24 +16,26 @@ export default props => {
             </span>
             <p>Save Image</p>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <span className="link">
               <i className="mdi mdi-link-variant"></i>
             </span>
             <p>Copy Link</p>
-          </div>
-          <div className="item">
-            <span className="fb">
-              <i className="mdi mdi-facebook"></i>
-            </span>
-            <p>Facebook</p>
+          </div> */}
+          {/* <div className="item">
+            <FacebookShareButton url="https://barcoss.com">
+              <span className="fb">
+                <i className="mdi mdi-facebook"></i>
+              </span>
+              <p>Facebook</p>
+            </FacebookShareButton>
           </div>
           <div className="item">
             <span className="tweet">
               <i className="mdi mdi-twitter"></i>
             </span>
             <p>Twitter</p>
-          </div>
+          </div> */}
         </div>
       </div>
       <span className="close" onClick={closeDrawer}>
