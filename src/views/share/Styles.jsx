@@ -58,7 +58,7 @@ export const DrawerContainer = styled.div`
         p {
           font-size: 11px;
           font-weight: 500;
-          margin-top: .6rem;
+          margin-top: 0.6rem;
         }
       }
     }
@@ -112,6 +112,18 @@ export const Container = styled.div`
   min-width: 310px;
   min-height: 550px;
   padding: 1rem;
+
+  div {
+    div {
+      ul {
+        li {
+          input {
+            color: black;
+          }
+        }
+      }
+    }
+  }
 `;
 export const Header = styled.div`
   display: flex;
@@ -136,7 +148,7 @@ export const Footer = styled.div`
 export const Slogan = styled.h2`
   font-size: 22px;
   font-family: "GTSuperText";
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   white-space: nowrap;
 `;
 export const Span = styled.span`

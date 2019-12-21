@@ -63,10 +63,12 @@ export const Btn = styled.input`
   &.btn-solid {
     background-color: #0262c3;
     color: white;
+    -webkit-appearance: none;
   }
   &.btn-outline {
     background-color: white;
     border: 1px solid #0262c3;
     color: #0262c3;
+    -webkit-appearance: none;
   }
 `;

@@ -25,6 +25,7 @@ body {
     color: black;
     opacity: .5;
   }
+  
   @media (min-width: $layout-breakpoint-small) {
     display: flex;
     justify-content: center;
