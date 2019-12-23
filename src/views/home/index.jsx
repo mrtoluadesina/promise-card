@@ -1,21 +1,21 @@
-import React, { useState, useContext } from "react";
-import styled from "styled-components";
-import firebase from "../../firebase";
+import React, { useState, useContext } from 'react';
+import styled from 'styled-components';
+import firebase from '../../firebase';
 
-import { ThemeContext } from "../../store";
+import { ThemeContext } from '../../store';
 import {
   YELLOW_THEME,
   PINK_THEME,
   BLUE_THEME,
   UPDATE_PROMISE_FORM,
-  UPDATE_USER_DETAILS
-} from "../../store/types";
-import { setActiveStyle } from "../../utils";
+  UPDATE_USER_DETAILS,
+} from '../../store/types';
+import { setActiveStyle } from '../../utils';
 
-import "./index.scss";
-import Table from "../../components/Table";
-import Button from "../../components/Button";
-import Modal from "../Modal";
+import './index.scss';
+import Table from '../../components/Table';
+import Button from '../../components/Button';
+import Modal from '../Modal';
 
 export default function Home(props) {
   const [state, dispatch] = useContext(ThemeContext);
@@ -27,26 +27,26 @@ export default function Home(props) {
     const db = firebase.firestore();
 
     try {
-      await db.collection("promise_card").add({
+      await db.collection('promise_card').add({
         ...state.user,
-        promise: state.inputList
+        promise: state.inputList,
       });
 
-      props.history.push("/share");
+      props.history.push('/share');
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleShowModal = () => {
-    const bg = document.querySelector(".app-content");
-    bg.classList.add("blur-bg");
+    const bg = document.querySelector('.app-content');
+    bg.classList.add('blur-bg');
     setShowModal(true);
   };
 
   const closeModal = () => {
-    const bg = document.querySelector(".app-content");
-    bg.classList.remove("blur-bg");
+    const bg = document.querySelector('.app-content');
+    bg.classList.remove('blur-bg');
     setShowModal(false);
   };
 
@@ -77,26 +77,26 @@ export default function Home(props) {
             }
             style={setActiveStyle({
               active: state.active,
-              boxType: YELLOW_THEME
+              boxType: YELLOW_THEME,
             })}
           ></span>
           <span
             onClick={() => dispatch({ type: PINK_THEME, active: PINK_THEME })}
             style={setActiveStyle({
               active: state.active,
-              boxType: PINK_THEME
+              boxType: PINK_THEME,
             })}
           ></span>
           <span
             onClick={() => dispatch({ type: BLUE_THEME, active: BLUE_THEME })}
             style={setActiveStyle({
               active: state.active,
-              boxType: BLUE_THEME
+              boxType: BLUE_THEME,
             })}
           ></span>
         </div>
         <Table inputList={state.inputList} handleChange={handleChange} />
-        <Button value={"GENERATE PROMISE CARD"} onClick={handleShowModal} />
+        <Button value={'GENERATE PROMISE CARD'} onClick={handleShowModal} />
       </div>
       {showModal && (
         <Modal
