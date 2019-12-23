@@ -20,6 +20,8 @@ import Modal from "../Modal";
 export default function Home(props) {
   const [state, dispatch] = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
+  const [filled, setFilled] = useState(false);
+  const [notification, setNotification] = useState("");
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -39,9 +41,13 @@ export default function Home(props) {
   };
 
   const handleShowModal = () => {
-    const bg = document.querySelector(".app-content");
-    bg.classList.add("blur-bg");
-    setShowModal(true);
+    console.log(filled);
+    if (filled) {
+      const bg = document.querySelector(".app-content");
+      bg.classList.add("blur-bg");
+      setShowModal(true);
+    }
+    setNotification("You need to fill at least the first field");
   };
 
   const closeModal = () => {
@@ -54,6 +60,10 @@ export default function Home(props) {
     const { id, value } = target;
     const form = [...state.inputList];
     form[id] = { title: value };
+
+    if (form[0].title) {
+      setFilled(true);
+    }
 
     dispatch({ type: UPDATE_PROMISE_FORM, payload: form });
   };
@@ -95,7 +105,12 @@ export default function Home(props) {
             })}
           ></span>
         </div>
-        <Table inputList={state.inputList} handleChange={handleChange} />
+        <Table
+          inputList={state.inputList}
+          handleChange={handleChange}
+          filled={filled}
+          notification={notification}
+        />
         <Button value={"GENERATE PROMISE CARD"} onClick={handleShowModal} />
       </div>
       {showModal && (
