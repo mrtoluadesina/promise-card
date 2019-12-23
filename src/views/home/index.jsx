@@ -41,15 +41,13 @@ export default function Home(props) {
   };
 
   const handleShowModal = () => {
-    const bg = document.querySelector('.app-content');
-    bg.classList.add('blur-bg');
-    setShowModal(true);
-    console.log(filled);
     if (filled) {
       const bg = document.querySelector(".app-content");
       bg.classList.add("blur-bg");
       setShowModal(true);
     }
+    const input = document.querySelectorAll('input');
+    input[0].classList.add('border-red');
     setNotification("You need to fill at least the first field");
   };
 
