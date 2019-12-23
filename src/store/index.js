@@ -16,7 +16,8 @@ const ThemeProvider = ({ children }) => {
       name: "",
       email: "",
       title: ""
-    }
+    },
+    isLoading: false
   };
 
   const [state, dispatch] = useReducer(appReducer, initialState);
