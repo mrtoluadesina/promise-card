@@ -1,8 +1,10 @@
 import React from "react";
+import useState from "react-hook-form";
 import "./index.scss";
 
 export default function Modal(props) {
   const { handleChange, close } = props;
+  const { handleSubmit, register, errors } = useState();
   return (
     <div className="modal">
       <span className="close-modal" onClick={close}>
@@ -10,7 +12,7 @@ export default function Modal(props) {
       </span>
       <div className="modal-content">
         <h2>Your Promise Card is Almost Ready</h2>
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit(props.handleSubmit)}>
           <div className="form-group">
             <label>Give your card a title</label>
             <input
@@ -19,7 +21,13 @@ export default function Modal(props) {
               value={props.title}
               placeholder="E.g. Christmas, Detty December, Birthday"
               onChange={handleChange}
+              ref={register({
+                required: true
+              })}
             />
+            <span style={{ color: "red", fontSize: "12px" }}>
+              {errors.title && errors.title.message}
+            </span>
           </div>
           <div className="form-group">
             <label>Full Name</label>
@@ -29,7 +37,13 @@ export default function Modal(props) {
               value={props.name}
               placeholder="Tolu Adesina"
               onChange={handleChange}
+              ref={register({
+                required: true
+              })}
             />
+            <span style={{ color: "red", fontSize: "12px" }}>
+              {errors.name && errors.name.message}
+            </span>
           </div>
           <div className="form-group">
             <label>
@@ -42,7 +56,13 @@ export default function Modal(props) {
               value={props.email}
               placeholder="example@mail.com"
               onChange={handleChange}
+              ref={register({
+                required: true
+              })}
             />
+            <span style={{ color: "red", fontSize: "12px" }}>
+              {errors.email && errors.email.message}
+            </span>
           </div>
           <input type="submit" className="btn" value="See My Promise Card" />
         </form>
