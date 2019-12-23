@@ -1,11 +1,22 @@
 import styled from "styled-components";
 
+export const TableWrapper = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+`;
+
+export const Alert = styled.span`
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+`;
+
 export const Table = styled.div`
   border: 2px solid #111111;
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 2rem;
 `;
 
 export const Header = styled.div`
@@ -18,6 +29,7 @@ export const Title = styled.p`
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 500;
+  text-align: left;
 `;
 
 export const List = styled.ul`
@@ -47,13 +59,16 @@ export const Btn = styled.input`
   border-radius: 0.6rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   margin-top: 1.2rem;
+  -webkit-appearance: none;
   &.btn-solid {
-    background-color: #0262C3;
+    background-color: #0262c3;
     color: white;
-  };
+    -webkit-appearance: none;
+  }
   &.btn-outline {
     background-color: white;
-    border: 1px solid #0262C3;
-    color: #0262C3;
+    border: 1px solid #0262c3;
+    color: #0262c3;
+    -webkit-appearance: none;
   }
 `;

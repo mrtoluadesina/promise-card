@@ -18,7 +18,7 @@ export default function Card(props) {
       />
       <Footer>
         <Slogan>
-          <em>Thanks for Giving</em>
+          <em>Givers Never Lack</em>
         </Slogan>
         <Span>create yours on promisecard.com.ng</Span>
       </Footer>
