@@ -1,36 +1,44 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../store";
-import styled from "styled-components";
-import Card from "./Card";
-import Button from "../../components/Button";
-import Drawer from "./Drawer";
+import React, { useContext, useState, useEffect } from 'react';
+import { ThemeContext } from '../../store';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Card from './Card';
+import Button from '../../components/Button';
+import Drawer from './Drawer';
 
-import htmlToImage from "html-to-image";
+import htmlToImage from 'html-to-image';
+import Confetti from '../../components/Confetti';
 
 export default function Share() {
   const [state] = useContext(ThemeContext);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    setShowConfetti(true);
+  }, []);
 
   const items = state.inputList.filter(item => item.title);
 
   const downloadImage = () => {
     htmlToImage
-      .toJpeg(document.getElementById("promiseCard"), { quality: 0.95 })
+      .toJpeg(document.getElementById('promiseCard'), { quality: 0.95 })
       .then(function(dataUrl) {
-        let downloader = document.createElement("a");
-        downloader.download = "my-promise-card.jpeg";
+        let downloader = document.createElement('a');
+        downloader.download = 'my-promise-card.jpeg';
         downloader.href = dataUrl;
         downloader.click();
       });
   };
 
   const openDrawer = () => {
-    const drawer = document.querySelector(".drawer");
-    drawer.classList.add("is-active");
+    const drawer = document.querySelector('.drawer');
+    drawer.classList.add('is-active');
   };
 
   return (
     <>
       <Container theme={state.currentTheme}>
+        {showConfetti ? <Confetti /> : null}
         <CardWrapper>
           <Card inputList={items} />
         </CardWrapper>
@@ -40,7 +48,9 @@ export default function Share() {
             value="Share with friends"
             onClick={openDrawer}
           />
-          <Button className="btn-outline" value="Create new card" />
+          <Link to="/">
+            <Button className="btn-outline" value="Create new card" />
+          </Link>
         </Actions>
       </Container>
       <Drawer downloader={downloadImage} />
@@ -59,7 +69,7 @@ const Container = styled.div`
   z-index: 1;
   position: relative;
   &::after {
-    content: "";
+    content: '';
     width: 100%;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.4);
@@ -87,5 +97,5 @@ const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  z-index: 3;
+  z-index: 10;
 `;
