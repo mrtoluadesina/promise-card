@@ -21,7 +21,7 @@ export default function Home(props) {
   const [state, dispatch] = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
   const [filled, setFilled] = useState(false);
-  const [notification, setNotification] = useState("");
+  const [notification, setNotification] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -46,11 +46,11 @@ export default function Home(props) {
     setShowModal(true);
     console.log(filled);
     if (filled) {
-      const bg = document.querySelector(".app-content");
-      bg.classList.add("blur-bg");
+      const bg = document.querySelector('.app-content');
+      bg.classList.add('blur-bg');
       setShowModal(true);
     }
-    setNotification("You need to fill at least the first field");
+    setNotification('You need to fill at least the first field');
   };
 
   const closeModal = () => {
@@ -114,7 +114,7 @@ export default function Home(props) {
           filled={filled}
           notification={notification}
         />
-        <Button value={"GENERATE PROMISE CARD"} onClick={handleShowModal} />
+        <Button value={'GENERATE PROMISE CARD'} onClick={handleShowModal} />
       </div>
       {showModal && (
         <Modal

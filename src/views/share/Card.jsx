@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../store";
-import { Container, Header, Title, Name, Footer, Slogan, Span } from "./Styles";
-import Table from "../../components/Table";
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../store';
+import { Container, Header, Title, Name, Footer, Slogan, Span } from './Styles';
+import Table from '../../components/Table';
 
 export default function Card(props) {
   const [state] = useContext(ThemeContext);
@@ -27,5 +27,5 @@ export default function Card(props) {
 }
 
 Card.defaultProps = {
-  inputList: [{ title: "Shoes" }, { title: "Chair" }]
+  inputList: [{ title: 'Shoes' }, { title: 'Chair' }],
 };
