@@ -35,7 +35,7 @@ export default function Home(props) {
         promise: state.inputList,
       });
       setLoading(false);
-      props.history.push('/share');
+      props.history.push("/share");
     } catch (error) {
       console.log(error);
     }
