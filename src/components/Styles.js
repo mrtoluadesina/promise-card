@@ -49,7 +49,7 @@ export const Input = styled.input`
   border-bottom: 2px solid #111111;
   padding: 0.5rem 1rem;
   background-color: transparent;
-  font-size: 15px;
+  font-size: 16px;
 
   &.border-red {
     outline-style: solid;
