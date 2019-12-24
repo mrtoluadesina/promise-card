@@ -119,6 +119,27 @@ export const Container = styled.div`
         li {
           input {
             color: black;
+
+            ::-webkit-input-placeholder {
+              /* Chrome/Opera/Safari */
+              color: black;
+              opacity: 1;
+            }
+            ::-moz-placeholder {
+              /* Firefox 19+ */
+              color: black;
+              opacity: 1;
+            }
+            :-ms-input-placeholder {
+              /* IE 10+ */
+              color: black;
+              opacity: 1;
+            }
+            :-moz-placeholder {
+              /* Firefox 18- */
+              color: black;
+              opacity: 1;
+            }
           }
         }
       }
