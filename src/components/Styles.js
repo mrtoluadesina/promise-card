@@ -70,11 +70,15 @@ export const Btn = styled.input`
     background-color: #0262c3;
     color: white;
     -webkit-appearance: none;
+    width: 150px;
+    padding: 0.75rem;
   }
   &.btn-outline {
     background-color: white;
     border: 1px solid #0262c3;
     color: #0262c3;
     -webkit-appearance: none;
+    width: 150px;
+    padding: 0.75rem;
   }
 `;
