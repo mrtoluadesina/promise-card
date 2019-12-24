@@ -50,6 +50,12 @@ export const Input = styled.input`
   padding: 0.5rem 1rem;
   background-color: transparent;
   font-size: 15px;
+
+  &.border-red {
+    outline-style: solid;
+    outline-color: rgba(255, 75, 75, 0.65);
+    outline-width: 2px;
+  }
 `;
 
 export const Btn = styled.input`
