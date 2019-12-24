@@ -21,11 +21,12 @@ export default function Home(props) {
   const [state, dispatch] = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
   const [filled, setFilled] = useState(false);
-  const [notification, setNotification] = useState("");
+  const [notification, setNotification] = useState('');
+  const [loading, setLoading] = useState(state.isLoading);
 
   const handleSubmit = async e => {
-    e.preventDefault();
-
+    // e.preventDefault();
+    setLoading(true);
     const db = firebase.firestore();
 
     try {
@@ -33,7 +34,7 @@ export default function Home(props) {
         ...state.user,
         promise: state.inputList,
       });
-
+      setLoading(false);
       props.history.push('/share');
     } catch (error) {
       console.log(error);
@@ -41,16 +42,14 @@ export default function Home(props) {
   };
 
   const handleShowModal = () => {
-    const bg = document.querySelector('.app-content');
-    bg.classList.add('blur-bg');
-    setShowModal(true);
-    console.log(filled);
     if (filled) {
-      const bg = document.querySelector(".app-content");
-      bg.classList.add("blur-bg");
+      const bg = document.querySelector('.app-content');
+      bg.classList.add('blur-bg');
       setShowModal(true);
     }
-    setNotification("You need to fill at least the first field");
+    const input = document.querySelectorAll('input');
+    input[0].classList.add('border-red');
+    setNotification('You need to fill at least the first field');
   };
 
   const closeModal = () => {
@@ -114,7 +113,7 @@ export default function Home(props) {
           filled={filled}
           notification={notification}
         />
-        <Button value={"GENERATE PROMISE CARD"} onClick={handleShowModal} />
+        <Button value={'GENERATE PROMISE CARD'} onClick={handleShowModal} />
       </div>
       {showModal && (
         <Modal
@@ -124,6 +123,7 @@ export default function Home(props) {
           {...state.user}
         />
       )}
+      {loading && <Loader />}
     </Container>
   );
 }
@@ -134,4 +134,37 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const Loader = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(37, 37, 37, 0.7);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: '';
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid black; /* black */
+    border-radius: 50%;
+    width: 100px;
+    min-height: 100px;
+    position: absolute;
+    animation: spin 2s linear infinite;
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
 `;
